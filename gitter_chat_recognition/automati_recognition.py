@@ -4,6 +4,7 @@ import json
 def get_room_link(org):
     page_number = 0
     number_repository = 0
+    repo_list_full_name = []
     repo_list = []
     while True:
         page_number +=1
@@ -11,12 +12,18 @@ def get_room_link(org):
         rep = requests.get(url)
         number_repository += len(rep.json())
         for elem in rep.json():
-            repo_list.append(elem['full_name'])
+            repo_list_full_name.append(elem['full_name'])
+            repo_list.append(elem['name'])
         if(len(rep.json())==0):
             break
-    print(number_repository)
-    print(repo_list)
-    
+
+def test_gitter_chat(project_name):
+    url = 'https://gitter.im/' + project_name 
+    resp = requests.get(url)
+    if resp.status_code!=200:
+        print('channel not found')
+    else:
+        print('channel found')
 
 #get_room_link('rails')
 '''get_room_link('laravel')
@@ -26,3 +33,5 @@ get_room_link('github')
 get_room_link('atom')
 get_room_link('flutter')'''
 get_room_link('ionic-team')
+test_gitter_chat('JabRef/jabref')
+test_gitter_chat('atom/atom')
