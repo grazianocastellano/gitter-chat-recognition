@@ -15,5 +15,3 @@ def google_search(query_test):
                ):
         my_results_list.append(i)
         print(i)
-
-google_search('film')
