@@ -1,7 +1,7 @@
 import requests
 
 
-def get_room_link(org):
+def get_project_name(org):
     page_number = 0
     number_repository = 0
     repo_list_full_name = []
