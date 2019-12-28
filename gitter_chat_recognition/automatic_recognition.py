@@ -38,7 +38,6 @@ def gitter_chat_project_name(project_name):
         return None
 
 
-
 '''get_room_link('rails')
 get_room_link('laravel')
 get_room_link('elixir-lang')
