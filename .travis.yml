@@ -9,3 +9,8 @@ install:
 script:
   - flake8
   - isort
+  - coverage run -m unittest discover
+env:
+  - CODECOV_TOKEN="5b7f4219-801b-48ec-bb29-e7e69ab9232b"
+after_succes:
+  - codecov
