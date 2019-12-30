@@ -10,11 +10,11 @@ class Test_Automatic_Recognition(unittest.TestCase):
 
     def test_gitter_chat_full_project_name(self):
         self.assertEqual(gitter_chat_full_project_name('JabRef/jabref'),
-                          'https://gitter.im/JabRef/jabref')
+                         'https://gitter.im/JabRef/jabref')
 
     def test_gitter_chat_project_name(self):
         self.assertEqual(gitter_chat_project_name('vscode'),
-                          None)
+                         None)
 
 
 if __name__ == '__main__':
