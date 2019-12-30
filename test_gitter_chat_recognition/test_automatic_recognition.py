@@ -9,11 +9,11 @@ from gitter_chat_recognition.automatic_recognition import \
 class Test_Automatic_Recognition(unittest.TestCase):
 
     def test_gitter_chat_full_project_name(self):
-        self.assertEquals(gitter_chat_full_project_name('JabRef/jabref'),
+        self.assertEqual(gitter_chat_full_project_name('JabRef/jabref'),
                           'https://gitter.im/JabRef/jabref')
 
     def test_gitter_chat_project_name(self):
-        self.assertEquals(gitter_chat_project_name('vscode'),
+        self.assertEqual(gitter_chat_project_name('vscode'),
                           None)
 
 
