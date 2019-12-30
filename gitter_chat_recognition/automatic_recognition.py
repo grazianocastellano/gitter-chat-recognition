@@ -18,6 +18,7 @@ def get_project_name(org):
             repo_list.append(elem['name'])
         if(len(rep.json()) == 0):
             break
+    return repo_list
 
 
 def gitter_chat_full_project_name(project_name):
