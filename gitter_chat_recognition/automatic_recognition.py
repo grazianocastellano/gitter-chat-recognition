@@ -23,19 +23,20 @@ def get_project_name(org):
 def gitter_chat_full_project_name(project_name):
     url = 'https://gitter.im/' + project_name
     resp = requests.get(url)
+    print(url)
     if resp.status_code != 200:
-        return url
-    else:
         return None
+    else:
+        return url
 
 
 def gitter_chat_project_name(project_name):
     url = 'https://gitter.im/' + project_name + "/" + project_name
     resp = requests.get(url)
     if resp.status_code != 200:
-        return url
-    else:
         return None
+    else:
+        return url
 
 
 '''get_room_link('rails')
