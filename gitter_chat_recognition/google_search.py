@@ -13,4 +13,4 @@ def google_search(query_test):
                     pause=2.0,  # Lapse between HTTP requests
                     ):
         my_results_list.append(i)
-        print(i)
+    return my_results_list[0]

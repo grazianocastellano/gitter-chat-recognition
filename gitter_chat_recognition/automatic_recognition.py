@@ -1,7 +1,7 @@
 import requests
 
 
-def get_room_link(org):
+def get_project_name(org):
     page_number = 0
     number_repository = 0
     repo_list_full_name = []
@@ -18,15 +18,25 @@ def get_room_link(org):
             repo_list.append(elem['name'])
         if(len(rep.json()) == 0):
             break
+    return repo_list
 
 
-def test_gitter_chat(project_name):
+def gitter_chat_full_project_name(project_name):
     url = 'https://gitter.im/' + project_name
     resp = requests.get(url)
     if resp.status_code != 200:
-        print('channel not found')
+        return None
     else:
-        print('channel found')
+        return url
+
+
+def gitter_chat_project_name(project_name):
+    url = 'https://gitter.im/' + project_name + "/" + project_name
+    resp = requests.get(url)
+    if resp.status_code != 200:
+        return None
+    else:
+        return url
 
 
 '''get_room_link('rails')
