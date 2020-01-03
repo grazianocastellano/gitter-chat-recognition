@@ -39,7 +39,22 @@ def gitter_chat_project_name(project_name):
         return url
 
 
-'''get_room_link('rails')
+def gitter_badge(project_name):
+    url = 'https://github.com/' + project_name
+    finder = 'https://gitter.im'
+    requester = requests.get(url)
+    text = requester.text.split()
+    for elem in text:
+        if str(elem).find(finder) != -1:
+            list = elem.split('href="')
+            link_gitter = list[1].split('?utm_source')[0]
+            channel_name = link_gitter.split('https://gitter.im/')[1]
+            return channel_name
+    return None
+
+
+'''gitter_badge('flutter/flutter')
+get_room_link('rails')
 get_room_link('laravel')
 get_room_link('elixir-lang')
 get_room_link('JabRef')
