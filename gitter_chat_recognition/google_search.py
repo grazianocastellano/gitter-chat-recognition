@@ -9,7 +9,7 @@ def google_search(query_test):
                     lang='en',  # The language
                     num=10,  # Number of results per page
                     start=0,  # First result to retrieve
-                    stop=5,  # Last result to retrieve
+                    stop=3,  # Last result to retrieve
                     pause=2.0,  # Lapse between HTTP requests
                     ):
         my_results_list.append(i)
