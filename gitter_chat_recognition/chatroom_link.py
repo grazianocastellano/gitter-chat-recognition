@@ -1,20 +1,21 @@
-from gitterpy.client import GitterClient
+from gitter_chat_recognition.automatic_recognition import \
+    gitter_badge as gitter_badge
+from gitter_chat_recognition.automatic_recognition import \
+    gitter_chat_full_project_name as gitter_chat_full_project_name
+from gitter_chat_recognition.automatic_recognition import \
+    gitter_chat_project_name as gitter_chat_project_name
+from gitter_chat_recognition.google_search import google_search
 
-from automatic_recognition import (gitter_chat_full_project_name,
-                                   gitter_chat_project_name)
-from google_search import google_search
 
-
-def get_chat_link(full_project_name, name_project, token):
-    client = GitterClient(token)
-    if gitter_chat_full_project_name(full_project_name) is None:
-        client.rooms.join(full_project_name)
-        client.messages.get_all_messages(full_project_name)
-    elif gitter_chat_project_name is None:
-        room_name = name_project + "/" + name_project
-        client.rooms.join(room_name)
-        client.messages.get_all_messages(room_name)
+def link_retrevier(full_project_name, name_project):
+    link_return = gitter_badge(full_project_name)
+    if link_return is not None:
+        return link_return
+    elif gitter_chat_full_project_name(full_project_name) is not None:
+        return gitter_chat_full_project_name(full_project_name)
+    elif gitter_chat_project_name(name_project) is not None:
+        return gitter_chat_project_name(name_project)
+    elif google_search(full_project_name) is not None:
+        return google_search(full_project_name)
     else:
-        roomchat = google_search(name_project)
-        client.rooms.join(roomchat)
-        client.messages.get_all_messages(roomchat)
+        return None
