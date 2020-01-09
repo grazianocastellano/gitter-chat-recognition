@@ -8,7 +8,7 @@ setup(name='gitter_chat_recognition',
       author_email='grazianocastellano@live.it',
       packages=['gitter_chat_recognition'],
       install_requires=[
-         'google-search',
+         'google',
          'requests',
          ]
       )
