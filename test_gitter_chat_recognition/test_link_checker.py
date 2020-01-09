@@ -21,12 +21,14 @@ class Test_Link_Checker(unittest.TestCase):
                          'https://github.com/microsoft/vscode')
 
     def test_link_checker4(self):
-        self.assertEqual(link_checker('https://gitter.im/ant-design/ant-design-english',
+        self.assertEqual(link_checker('https://gitter.im/ant-design/'
+                                      + 'ant-design-english',
                                       'ant-design/ant-design'),
                          'https://github.com/ant-design/ant-design')
 
     def test_link_checker5(self):
-        self.assertIsNone(link_checker('https://gitter.im/communityTest/commytest',
+        self.assertIsNone(link_checker('https://gitter.im/communityTest/'
+                                       + 'commytest',
                                        'communityTest/commytest'))
 
 
