@@ -11,8 +11,6 @@ def link_checker(url, project_name):
                 link_github = list[1].split('/issues/')[0]
             else:
                 link_github = list[1].split('"')[0]
-            if(requests.get(link_github).status_code != 200):
-                return None
-            else:
+            if(requests.get(link_github).status_code == 200):
                 return link_github
     return None
