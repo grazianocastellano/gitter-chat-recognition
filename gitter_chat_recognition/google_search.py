@@ -15,6 +15,7 @@ def google_search(query_test):
                     ):
         my_results_list.append(i)
     for elem in my_results_list:
-        if link_checker(elem, query_test) is not None:
-            return elem
+        link = elem.split('?')
+        if link_checker(link[0], query_test) is not None:
+            return link[0]
     return None
