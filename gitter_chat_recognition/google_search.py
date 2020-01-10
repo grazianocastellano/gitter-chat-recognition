@@ -1,6 +1,5 @@
-from googlesearch import search as search
-
 from gitter_chat_recognition.link_checker import link_checker as link_checker
+from googlesearch import search as search
 
 
 def google_search(query_test):
