@@ -9,7 +9,6 @@ setup(name='gitter_chat_recognition',
       packages=['gitter_chat_recognition'],
       install_requires=[
          'google',
-         'google-search',
          'requests',
          ]
       )
