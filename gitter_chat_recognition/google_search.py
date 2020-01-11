@@ -13,7 +13,7 @@ def google_search(query_test):
                     stop=3,  # Last result to retrieve
                     pause=2.0,  # Lapse between HTTP requests
                     ):
-        if(i.find('gitter.im')!=1):
+        if(i.find('gitter.im') != -1):
             my_results_list.append(i)
             print(i)
     for elem in my_results_list:
