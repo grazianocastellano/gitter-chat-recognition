@@ -14,6 +14,7 @@ def google_search(query_test):
                     pause=2.0,  # Lapse between HTTP requests
                     ):
         my_results_list.append(i)
+        print(i)
     for elem in my_results_list:
         link = elem.split('?')
         if link_checker(link[0], query_test) is not None:
