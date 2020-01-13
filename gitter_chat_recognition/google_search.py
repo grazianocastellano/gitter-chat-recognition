@@ -13,9 +13,8 @@ def google_search(query_test):
                     stop=3,  # Last result to retrieve
                     pause=2.0,  # Lapse between HTTP requests
                     ):
-        if(i.find('gitter.im') != -1):
+        if(i.find('https://gitter.im') != -1):
             my_results_list.append(i)
-            print(i)
     for elem in my_results_list:
         link = elem.split('?')
         if link_checker(link[0], query_test) is not None:
