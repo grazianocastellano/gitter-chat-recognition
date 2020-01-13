@@ -1,11 +1,13 @@
 import unittest
 
 from gitter_chat_recognition.automatic_recognition import \
+    get_project_name as get_project_name
+from gitter_chat_recognition.automatic_recognition import \
+    gitter_badge as gitter_badge
+from gitter_chat_recognition.automatic_recognition import \
     gitter_chat_full_project_name as gitter_chat_full_project_name
 from gitter_chat_recognition.automatic_recognition import \
     gitter_chat_project_name as gitter_chat_project_name
-from gitter_chat_recognition.automatic_recognition import (get_project_name,
-                                                           gitter_badge)
 
 
 class Test_Automatic_Recognition(unittest.TestCase):

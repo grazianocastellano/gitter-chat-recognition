@@ -1,4 +1,4 @@
-from gitter_chat_recognition.link_checker import link_checker
+from gitter_chat_recognition.link_checker import link_checker as link_checker
 from googlesearch import search
 
 
@@ -13,8 +13,10 @@ def google_search(query_test):
                     stop=3,  # Last result to retrieve
                     pause=2.0,  # Lapse between HTTP requests
                     ):
-        my_results_list.append(i)
+        if(i.find('https://gitter.im') != -1):
+            my_results_list.append(i)
     for elem in my_results_list:
-        if link_checker(elem, query_test) is not None:
-            return elem
+        link = elem.split('?')
+        if link_checker(link[0], query_test) is not None:
+            return link[0]
     return None
