@@ -16,6 +16,11 @@ class Test_Chatroom_link(unittest.TestCase):
         self.assertEqual(link_retrevier('microsoft/TypeScript', 'TypeScript'),
                          'https://gitter.im/microsoft/TypeScript')
 
+    def test_chatroom_link3(self):
+        self.assertEqual(link_retrevier('apache/incubator-superset',
+                                        'incubator-superset'),
+                         'https://gitter.im/airbnb/superset')
+
 
 if __name__ == "__main__":
     unittest.main()
