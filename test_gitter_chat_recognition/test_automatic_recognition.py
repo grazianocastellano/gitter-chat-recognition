@@ -21,11 +21,14 @@ class Test_Automatic_Recognition(unittest.TestCase):
                          None)
 
     def test_get_project_name(self):
-        list1 = ['gitter-chat-recognition', 'GitterPy', 'grimoirelab-perceval']
+        list1 = ['grazianocastellano/gitter-chat-recognition',
+                 'grazianocastellano/GitterPy',
+                 'grazianocastellano/grimoirelab-perceval']
         self.assertEqual(get_project_name('grazianocastellano'), list1)
 
     def test_gitter_badge(self):
-        self.assertEqual(gitter_badge('flutter/flutter'), 'flutter/flutter')
+        self.assertEqual(gitter_badge('flutter/flutter'),
+                         'https://gitter.im/flutter/flutter')
 
     def test_gitter_badge2(self):
         self.assertEqual(gitter_badge('grazianocastellano/Gitterpy'), None)
