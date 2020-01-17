@@ -10,5 +10,6 @@ setup(name='gitter_chat_recognition',
       install_requires=[
          'google',
          'requests',
+         'google-api-python-client',
          ]
       )
