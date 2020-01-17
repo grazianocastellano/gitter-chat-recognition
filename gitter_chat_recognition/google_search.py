@@ -1,22 +1,34 @@
+import time
+
 from gitter_chat_recognition.link_checker import link_checker as link_checker
-from googlesearch import search
+from googleapiclient.discovery import build
+
+
+def google_search_auth(query_test):
+    api_key = "AIzaSyARUpnmrJhz2BNh45rDhpnK5vlCrortnUM"
+    cse_id = "016258605236218919930:fvbht5wuhx6"
+    service = build("customsearch", "v1", developerKey=api_key).cse()
+    res = service.list(q=query_test, cx=cse_id, num=3).execute()
+    list_link = []
+    try:
+        list_res = res['items']
+        for elem in list_res:
+            list_link.append(elem['link'])
+    except:
+        pass
+    return list_link
 
 
 def google_search(query_test):
+    time.sleep(2.0)
     query = 'gitter ' + query_test
     my_results_list = []
-    for i in search(query,  # The query you want to run
-                    tld='com',  # The top level domain
-                    lang='en',  # The language
-                    num=10,  # Number of results per page
-                    start=0,  # First result to retrieve
-                    stop=3,  # Last result to retrieve
-                    pause=2.0,  # Lapse between HTTP requests
-                    ):
+    res = google_search_auth(query)
+    for i in res:
         if(i.find('https://gitter.im') != -1):
             my_results_list.append(i)
     for elem in my_results_list:
-        link = elem.split('?')
-        if link_checker(link[0], query_test) is not None:
-            return link[0]
+        link = elem.split('?')[0]
+        if link_checker(link, query_test) is not None:
+            return link
     return None
