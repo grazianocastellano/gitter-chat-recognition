@@ -18,7 +18,7 @@ def get_project_name(org):
             repo_list.append(elem['name'])
         if(len(rep.json()) == 0):
             break
-    return repo_list
+    return repo_list_full_name
 
 
 def gitter_chat_full_project_name(project_name):
@@ -47,9 +47,28 @@ def gitter_badge(project_name):
     for elem in text:
         if str(elem).find(finder) != -1:
             list = elem.split('href="')
-            link_gitter = list[1].split('?utm_source')[0]
-            channel_name = link_gitter.split('https://gitter.im/')[1]
-            return channel_name
+            if list[1].find('?utm_source') != -1:
+                link_gitter = list[1].split('?utm_source')[0]
+                return link_gitter
+            else:
+                link_gitter = list[1].split('"')[0]
+                return link_gitter
+    return None
+
+
+def reading_contributing(project_name):
+    url = 'https://github.com/' + project_name + '/blob/master/CONTRIBUTING.md'
+    finder = 'https://gitter.im'
+    requester = requests.get(url)
+    text = requester.text.split()
+    for elem in text:
+        if str(elem).find(finder) != -1:
+            list = elem.split('href="')
+            if list[1].find('?utm_source'):
+                link_gitter = list[1].split('?utm_source')[0]
+            else:
+                link_gitter = list[1].split('"')[0]
+            return link_gitter
     return None
 
 
