@@ -13,11 +13,14 @@ def get_project_name(org):
         url += str(page_number) + '&per_page=100'
         rep = requests.get(url)
         number_repository += len(rep.json())
-        for elem in rep.json():
-            repo_list_full_name.append(elem['full_name'])
-            repo_list.append(elem['name'])
-        if(len(rep.json()) == 0):
-            break
+        try:
+            for elem in rep.json():
+                repo_list_full_name.append(elem['full_name'])
+                repo_list.append(elem['name'])
+            if(len(rep.json()) == 0):
+                break
+        except:
+            return ('Project not found')
     return repo_list_full_name
 
 
