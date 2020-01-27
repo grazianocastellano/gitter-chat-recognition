@@ -67,7 +67,7 @@ def reading_contributing(project_name):
     for elem in text:
         if str(elem).find(finder) != -1:
             list = elem.split('href="')
-            if list[1].find('?utm_source'):
+            if list[1].find('?utm_source') != -1:
                 link_gitter = list[1].split('?utm_source')[0]
             else:
                 link_gitter = list[1].split('"')[0]
