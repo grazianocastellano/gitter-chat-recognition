@@ -8,6 +8,8 @@ from gitter_chat_recognition.automatic_recognition import \
     gitter_chat_full_project_name as gitter_chat_full_project_name
 from gitter_chat_recognition.automatic_recognition import \
     gitter_chat_project_name as gitter_chat_project_name
+from gitter_chat_recognition.automatic_recognition import \
+    reading_contributing as reading_contributing
 
 
 class Test_Automatic_Recognition(unittest.TestCase):
@@ -32,6 +34,13 @@ class Test_Automatic_Recognition(unittest.TestCase):
 
     def test_gitter_badge2(self):
         self.assertEqual(gitter_badge('grazianocastellano/Gitterpy'), None)
+
+    def test_reading_contributing(self):
+        self.assertEqual(reading_contributing('angular/angular'),
+                         'https://gitter.im/angular/angular')
+
+    def test_reading_contributing2(self):
+        self.assertIsNone(reading_contributing('flutter/flutter'))
 
 
 if __name__ == '__main__':
