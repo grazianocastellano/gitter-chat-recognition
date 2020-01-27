@@ -13,10 +13,16 @@ def google_search_auth(query_test):
     try:
         list_res = res['items']
         for elem in list_res:
-            list_link.append(elem['link'])
+            if(elem['link'].find('https://gitter.im') != -1 and
+               elem['link'].find('https://gitter.im/explore') == -1):
+                list_link.append(elem['link'])
     except:
-        pass
-    return list_link
+        return None
+    if(len(list_link)) != 0:
+        link = elem.split('?')[0]
+        if link_checker(link, query_test) is not None:
+            return link
+    return None
 
 
 def google_search(query_test):
