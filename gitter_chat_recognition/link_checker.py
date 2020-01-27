@@ -1,5 +1,6 @@
-import requests
 import re
+
+import requests
 
 
 def link_checker(url, project_name):
@@ -29,7 +30,7 @@ def link_checker_beta(url, project_name):
         for elem in split_project_name:
             for elem2 in split_gitter_name:
                 if elem2.find(elem) != -1:
-                    temp=True
+                    temp = True
         if(temp is True):
             return url
         else:
