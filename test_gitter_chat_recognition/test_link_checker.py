@@ -45,9 +45,9 @@ class Test_Link_Checker(unittest.TestCase):
 
     def test_link_checker8(self):
         self.assertEqual(link_checker_beta('https://gitter.im/firehol/' +
-                                            'netdata',
-                                            'netdata/netdata'),
-                          'https://github.com/netdata/netdata')
+                                           'netdata',
+                                           'netdata/netdata'),
+                         'https://github.com/netdata/netdata')
 
 
 if __name__ == '__main__':
