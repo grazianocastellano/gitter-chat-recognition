@@ -19,7 +19,7 @@ def get_project_name(org):
                 repo_list.append(elem['name'])
             if(len(rep.json()) == 0):
                 break
-        except:
+        except TypeError:
             return ('Project not found')
     return repo_list_full_name
 
