@@ -17,12 +17,8 @@ def google_search_auth(query_test):
                elem['link'].find('https://gitter.im/explore') == -1):
                 list_link.append(elem['link'])
     except:
-        return None
-    if(len(list_link)) != 0:
-        link = elem.split('?')[0]
-        if link_checker(link, query_test) is not None:
-            return link
-    return None
+        return list_link
+    return list_link
 
 
 def google_search(query_test):
