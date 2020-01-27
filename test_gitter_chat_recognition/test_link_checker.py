@@ -1,6 +1,7 @@
 import unittest
 
-from gitter_chat_recognition.link_checker import link_checker
+from gitter_chat_recognition.link_checker import (link_checker,
+                                                  link_checker_beta)
 
 
 class Test_Link_Checker(unittest.TestCase):
@@ -30,6 +31,23 @@ class Test_Link_Checker(unittest.TestCase):
         self.assertIsNone(link_checker('https://gitter.im/communityTest/'
                                        + 'commytest',
                                        'communityTest/commytest'))
+
+    def test_link_checker6(self):
+        self.assertEqual(link_checker_beta('https://gitter.im/ant-design/'
+                                           + 'ant-design-english',
+                                           'ant-design/ant-design'),
+                         'https://github.com/ant-design/ant-design')
+
+    def test_link_checker7(self):
+        self.assertIsNone(link_checker_beta('https://gitter.im/communityTest/'
+                                            + 'commytest',
+                                            'communityTest/commytest'))
+
+    def test_link_checker8(self):
+        self.assertEqual(link_checker_beta('https://gitter.im/firehol/' +
+                                            'netdata',
+                                            'netdata/netdata'),
+                          'https://github.com/netdata/netdata')
 
 
 if __name__ == '__main__':
