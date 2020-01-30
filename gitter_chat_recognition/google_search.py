@@ -1,6 +1,6 @@
 import time
 
-from gitter_chat_recognition.link_checker import link_checker as link_checker
+from gitter_chat_recognition.link_checker import link_checker_beta
 from googleapiclient.discovery import build
 
 
@@ -31,6 +31,6 @@ def google_search(query_test):
             my_results_list.append(i)
     for elem in my_results_list:
         link = elem.split('?')[0]
-        if link_checker(link, query_test) is not None:
+        if link_checker_beta(link, query_test) is not None:
             return link
     return None
