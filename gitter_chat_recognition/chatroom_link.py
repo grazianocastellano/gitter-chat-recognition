@@ -7,7 +7,7 @@ from gitter_chat_recognition.automatic_recognition import \
 from gitter_chat_recognition.google_search import google_search
 
 
-def link_retrevier(full_project_name, name_project):
+def link_retrevier(full_project_name):
     link_return = gitter_badge(full_project_name)
     if link_return is not None:
         return link_return
